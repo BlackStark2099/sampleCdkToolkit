@@ -18,10 +18,10 @@ export class Cicd2Stack extends Stack {
                    'npx cdk synth']
       }),
     });
-
-    const testingstage=pipeline.addStage(new MyPipelineAppStage (this,"test",{
+    const stage = new MyPipelineAppStage (this,"test",{
       env:{account:"637774830294",region:"us-east-1"}
-    }));
+    })
+    const testingstage=pipeline.addStage(stage);
     
     testingstage.addPost(new ManualApprovalStep('Manual approval before production'));
 
