@@ -1,7 +1,5 @@
 import { Stack, StackProps } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
-// import * as sqs from 'aws-cdk-lib/aws-sqs';
-
 import{CodePipeline,CodePipelineSource,ShellStep}from'aws-cdk-lib/pipelines';
 import{ManualApprovalStep} from'aws-cdk-lib/pipelines';
 import{MyPipelineAppStage} from './stage';
@@ -34,4 +32,3 @@ export class Cicd2Stack extends Stack {
 
   }
 }
-
