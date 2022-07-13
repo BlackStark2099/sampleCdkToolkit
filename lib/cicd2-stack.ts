@@ -19,7 +19,7 @@ export class Cicd2Stack extends Stack {
       }),
     });
 
-    const testingstage=pipeline.addStage(new MyPipelineAppStage(this,"test",{
+    const testingstage=pipeline.addStage(new MyPipelineAppStage (this,"test",{
       env:{account:"637774830294",region:"us-east-1"}
     }));
     
