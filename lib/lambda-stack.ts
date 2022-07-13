@@ -14,19 +14,19 @@ export class MyLambdaStack extends cdk.Stack{
       new Function(this,'LambdaFunction2',{
         runtime:Runtime.NODEJS_12_X,
         handler:'handler_c2.handler',
-        code: Code.fromAsset(path.join(__dirname,'lambda')),
+        code: Code.fromAsset(path.join(__dirname,'lambda2')),
         environment:{"stageName":stageName}
       });
       new Function(this,'LambdaFunction3',{
         runtime:Runtime.NODEJS_12_X,
         handler:'handler_c3.handler',
-        code: Code.fromAsset(path.join(__dirname,'lambda')),
+        code: Code.fromAsset(path.join(__dirname,'lambda3')),
         environment:{"stageName":stageName}
       });
       new Function(this,'LambdaFunction4',{
         runtime:Runtime.NODEJS_12_X,
         handler:'handler_c4.handler',
-        code: Code.fromAsset(path.join(__dirname,'lambda')),
+        code: Code.fromAsset(path.join(__dirname,'lambda4')),
         environment:{"stageName":stageName}
        });
     }
