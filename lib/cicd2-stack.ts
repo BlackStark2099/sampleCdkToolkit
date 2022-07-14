@@ -1,8 +1,10 @@
 import { Stack, StackProps } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
-import{CodePipeline,CodePipelineSource,ShellStep}from'aws-cdk-lib/pipelines';
+import{CodePipeline,CodePipelineSource,ShellStep,CodeBuildOptions}from'aws-cdk-lib/pipelines';
 import{ManualApprovalStep} from'aws-cdk-lib/pipelines';
 import{MyPipelineAppStage} from './stage';
+import * as codepipeline_build from 'aws-cdk-lib/aws-codebuild';
+
 
 
 export class Cicd2Stack extends Stack {
@@ -15,8 +17,15 @@ export class Cicd2Stack extends Stack {
         input:CodePipelineSource.gitHub('BlackStark2099/sampleCdkToolkit','main'),// Remember to ch
         commands:['npm ci',
                    'npm run build',
-                   'npx cdk synth']
+                   'npx cdk synth'],
       }),
+      
+      codeBuildDefaults:{
+        buildEnvironment: {
+          computeType: codepipeline_build.ComputeType.LARGE
+        },
+      }
+      
     });
     const stage = new MyPipelineAppStage (this,"test",{
       env:{account:"637774830294",region:"us-east-1"}
