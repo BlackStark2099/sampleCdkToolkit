@@ -23,7 +23,7 @@ export class Cicd2Stack extends Stack {
         },
         cache: {
           paths: [
-            '/**/*',
+            '/lib/*',
           ],
         },
       }),
