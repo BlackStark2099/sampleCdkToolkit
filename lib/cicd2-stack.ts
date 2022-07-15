@@ -6,7 +6,6 @@ import{MyPipelineAppStage} from './stage';
 import * as codebuild from 'aws-cdk-lib/aws-codebuild';
 
 
-
 export class Cicd2Stack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
@@ -24,7 +23,7 @@ export class Cicd2Stack extends Stack {
         },
         cache: {
           paths: [
-            'lib/*',
+            '/**/*',
           ],
         },
       }),
@@ -66,7 +65,6 @@ export class Cicd2Stack extends Stack {
     const testingstage=pipeline.addStage(stage);
     
     testingstage.addPost(new ManualApprovalStep('Manual approval before production'));
-
 
     const prodstage=pipeline.addStage(new MyPipelineAppStage(this,"prod",{
       env:{account:"637774830294",region:"us-east-1"}
