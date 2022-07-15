@@ -72,5 +72,7 @@ export class Cicd2Stack extends Stack {
       env:{account:"637774830294",region:"us-east-1"}
     }));
 
+    
+
   }
 }
