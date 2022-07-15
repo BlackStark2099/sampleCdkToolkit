@@ -19,7 +19,9 @@ export class Cicd2Stack extends Stack {
         version: '0.2',
         phases: {
           build: {
-            commands:[''],
+            commands:['npm ci',
+            'npm run build',
+            'npx cdk synth'],
           },
         },
         cache: {
@@ -48,9 +50,7 @@ export class Cicd2Stack extends Stack {
       pipelineName:'TestPipeline',
       synth:new ShellStep('Synth',{
         input:CodePipelineSource.gitHub('BlackStark2099/sampleCdkToolkit','main'),// Remember to ch
-        commands:['npm ci',
-        'npm run build',
-        'npx cdk synth'],
+        commands:[''],
       }),
       
       codeBuildDefaults:{
