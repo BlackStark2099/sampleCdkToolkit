@@ -10,40 +10,27 @@ export class Cicd2Stack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
-    const invalidateBuildProject = new codebuild.PipelineProject(this, `InvalidateProject`, {
+    // const invalidateBuildProject = new codebuild.PipelineProject(this, `InvalidateProject`, {
       
-      cache: codebuild.Cache.local(codebuild.LocalCacheMode.DOCKER_LAYER, codebuild.LocalCacheMode.CUSTOM),
+    //   cache: codebuild.Cache.local(codebuild.LocalCacheMode.DOCKER_LAYER, codebuild.LocalCacheMode.CUSTOM),
 
-      buildSpec: codebuild.BuildSpec.fromObject({
-        version: '0.2',
-        phases: {
-          build: {
-            commands:[''],
-          },
-        },
-        cache: {
-          paths: [
-            '/lib/*',
-          ],
-        },
-        
-      }),
-    });
-    
-    // Add Cloudfront invalidation permissions to the project
-    // const distributionArn = `arn:aws:cloudfront::${this.account}:distribution/${distribution.distributionId}`;
-    // invalidateBuildProject.addToRolePolicy(new iam.PolicyStatement({
-    //   resources: [distributionArn],
-    //   actions: [
-    //     'cloudfront:CreateInvalidation',
-    //   ],
-    // }));
-    
-    // Create the pipeline (here only the S3 deploy and Invalidate cache build)
-    // const deployBucket = new s3.Bucket(this, 'DeployBucket');
-    // const deployInput = new codepipeline.Artifact();
-    
+    //   buildSpec: codebuild.BuildSpec.fromObject({
+    //     version: '0.2',
+    //     phases: {
+    //       build: {
+    //         commands:[''],
+    //       },
+    //     },
+    //     cache: {
+    //       paths: [
+    //         '/lib/*',
+    //       ],
+    //     },
 
+    //   }),
+    // });
+    
+    
     const pipeline  = new CodePipeline(this,'Pipeline',{
       pipelineName:'TestPipeline',
       synth:new ShellStep('Synth',{
