@@ -37,7 +37,7 @@ export class Cicd2Stack extends Stack {
         input:CodePipelineSource.gitHub('BlackStark2099/sampleCdkToolkit','main'),// Remember to ch
         commands:['npm ci',
         'npm run build',
-        'npx cdk synth', 'npx cdk watch'],
+        'npx cdk synth', 'cdk deploy --hotswap'],
       }),
       
       // codeBuildDefaults:{
