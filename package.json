@@ -21,7 +21,9 @@
     "typescript": "~3.9.7"
   },
   "dependencies": {
+    "@aws-cdk/aws-cloudfront": "^1.163.2",
     "@aws-cdk/aws-codebuild": "^1.163.1",
+    "@aws-cdk/aws-codepipeline-actions": "^1.163.2",
     "aws-cdk-lib": "2.25.0",
     "constructs": "^10.0.0",
     "source-map-support": "^0.5.21"

@@ -40,11 +40,11 @@ export class Cicd2Stack extends Stack {
         'npx cdk synth'],
       }),
       
-      codeBuildDefaults:{
-        buildEnvironment: {
-          computeType: codebuild.ComputeType.LARGE
-        },
-      }
+      // codeBuildDefaults:{
+      //   buildEnvironment: {
+      //     computeType: codebuild.ComputeType.LARGE
+      //   },
+      // }
       
     });
     const stage = new MyPipelineAppStage (this,"test",{
