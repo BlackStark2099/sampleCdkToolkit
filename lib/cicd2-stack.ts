@@ -20,40 +20,7 @@ export class Cicd2Stack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
     
-    // const {parse, stringify, toJSON, fromJSON} = require('flatted');
-    // const configFilePath = path.join(__dirname,"config.json")
-    // const config = require(configFilePath)    
-    // for(let i=0;i<config.length;i++){
-    //   if(config[i].isChanged){
-    //     const asset = new assets.Asset(this, 'SampleAsset'+i, {
-    //       path: config[i].filePath,
-    //     });
-    //     config[i].S3_bucket = asset
-    //     config[i].isChanged = false
-    //   }
-    // }
-    // console.log()
-    // fs.writeFile (configFilePath, stringify(config), function(err) {
-    //   if (err) throw err; 
-    // }); 
-
-
-
-
-
-    // console.log("-----------------------------------------------------------------")
-    // console.log("manan" + asset.s3BucketName)
-    // console.log(asset.s3ObjectKey)
-    // console.log(asset.s3ObjectUrl)
-    // console.log(asset.httpUrl)
-
-    // new Function(this,'LambdaFunction1',{
-    //   runtime:Runtime.NODEJS_12_X,
-    //   handler:'handler.handler',
-    //   code: Code.fromBucket( asset.bucket,asset.s3ObjectKey)
-    // });
-    
-    
+ 
     const pipeline  = new CodePipeline(this,'Pipeline',{
       pipelineName:'TestPipeline',
       synth:new ShellStep('Synth',{
