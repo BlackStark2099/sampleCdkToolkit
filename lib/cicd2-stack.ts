@@ -19,6 +19,8 @@ import * as assets from 'aws-cdk-lib/aws-s3-assets';
 export class Cicd2Stack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
+
+    
     
  
     const pipeline  = new CodePipeline(this,'Pipeline',{
