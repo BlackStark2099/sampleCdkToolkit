@@ -20,9 +20,6 @@ import { aws_appflow as appflow } from 'aws-cdk-lib';
 export class Cicd2Stack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
-
-    
-    
  
     const pipeline  = new CodePipeline(this,'Pipeline',{
       pipelineName:'TestPipeline',
@@ -35,10 +32,7 @@ export class Cicd2Stack extends Stack {
 
     });
     
-    const incrementalPullConfigProperty: appflow.CfnFlow.IncrementalPullConfigProperty = {
-      datetimeTypeFieldName: 'datetimeTypeFieldName',
-    };
-
+    
     const stage = new MyPipelineAppStage (this,"test",{
       env:{account:"637774830294",region:"us-east-1" }
     })

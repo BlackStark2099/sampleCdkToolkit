@@ -7,37 +7,11 @@ export class MyLambdaStack extends cdk.Stack{
     constructor(scope:Construct, id:string,stageName:string,props ?: cdk.StackProps){
       super(scope,id,props);
       new Function(this,'LambdaFunction1',{
-        runtime:Runtime.NODEJS_12_X,
+        runtime:Runtime.PYTHON_3_8,
         handler:'handler.handler',
-        code: new AssetCode(path.join(__dirname,"lambda"),{
-          assetHashType: AssetHashType.CUSTOM,
-          assetHash: "helloewwww"
-        }),
+        code: Code.fromAsset(path.join(__dirname,"lambda")),
         environment:{"stageName":stageName}
       });
-      new Function(this,'LambdaFunction2',{
-        runtime:Runtime.NODEJS_12_X,
-        handler:'handler_c2.handler',
-        code: new AssetCode(path.join(__dirname,"lambda2"),{
-          assetHashType: AssetHashType.CUSTOM,
-          assetHash: "helloewwww1"
-        }),
-        environment:{"stageName":stageName}
-      });
-      new Function(this,'LambdaFunction3',{
-        runtime:Runtime.NODEJS_12_X,
-        handler:'handler_c3.handler',
-        code: new AssetCode(path.join(__dirname,"lambda3"),{
-          assetHashType: AssetHashType.CUSTOM,
-          assetHash: "helloewwww2"
-        }),
-        environment:{"stageName":stageName}
-      });
-      // new Function(this,'LambdaFunction4',{
-      //   runtime:Runtime.NODEJS_12_X,
-      //   handler:'handler_c4.handler',
-      //   code: Code.fromAsset(path.join(__dirname,'lambda4')),
-      //   environment:{"stageName":stageName}
-      //  });
+     
     }
 }
