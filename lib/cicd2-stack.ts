@@ -14,6 +14,7 @@ import {parse, stringify, toJSON, fromJSON} from 'flatted';
 import * as codebuild from 'aws-cdk-lib/aws-codebuild';
 
 import * as assets from 'aws-cdk-lib/aws-s3-assets';
+import { aws_appflow as appflow } from 'aws-cdk-lib';
 
 
 export class Cicd2Stack extends Stack {
@@ -33,6 +34,11 @@ export class Cicd2Stack extends Stack {
       }),
 
     });
+    
+    const incrementalPullConfigProperty: appflow.CfnFlow.IncrementalPullConfigProperty = {
+      datetimeTypeFieldName: 'datetimeTypeFieldName',
+    };
+
     const stage = new MyPipelineAppStage (this,"test",{
       env:{account:"637774830294",region:"us-east-1" }
     })
