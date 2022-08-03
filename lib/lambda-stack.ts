@@ -11,7 +11,6 @@ export class MyLambdaStack extends cdk.Stack{
         handler:'handler.handler',
         code: Code.fromAsset(path.join(__dirname,"lambda")),
         environment:{"stageName":stageName}
-        
       });
       
       new Function(this,'LambdaFunction2',{
